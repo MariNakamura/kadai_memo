@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/sample.css" />
+    <title>メモアプリ</title>
+</head>
+
+<body>
+    <div class="form-area">
+        <h2>アイデア出し</h2>
+        <!-- 入力フォーム -->
+        <div class="concept">
+            <label for="concept-name">事業概要をひとことで</label><br>
+            <input type="text" id="concept-name" required />
+        </div>
+
+        <div class="who">
+            <label for="who-pain">誰に（例：××に困っている〇〇）</label><br>
+            <input type="text" id="who-pain" required />
+        </div>
+
+        <div class="what">
+            <label for="what-solution">何を</label><br>
+            <input type="text" id="what-solution" required />
+        </div>
+
+        <div>
+            <label for="market">市場規模</label><br>
+            <select id="market">
+                <option value="" disabled selected>選択してください</option>
+                <option>◎</option>
+                <option>⚪︎</option>
+                <option>△</option>
+                <option>×</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="will">Will</label><br>
+            <select id="will">
+                <option value="" disabled selected>選択してください</option>
+                <option>◎</option>
+                <option>⚪︎</option>
+                <option>△</option>
+                <option>×</option>
+            </select>
+        </div>
+
+        <div class="can">
+            <label for="can">Can</label><br>
+            <select id="can">
+                <option value="" disabled selected>選択してください</option>
+                <option>◎</option>
+                <option>⚪︎</option>
+                <option>△</option>
+                <option>×</option>
+            </select>
+        </div>
+
+        <!-- フリーコメント欄 -->
+        <div class="comment">
+            <label for="free-comment">フリーコメント</label><br>
+            <textarea id="free-comment" rows="4"></textarea>
+        </div>
+
+        <!-- 保存ボタン -->
+        <button onclick="addItem()">保存する</button>
+    </div>
+
+    <div class="memo-list">
+        <h2>アイデア一覧</h2>
+        <!-- 保存されたメモが表示されるエリア -->
+        <div id="idea-list"></div>
+    </div>
+
+    <script>
+        function addItem() {
+            const concept = document.getElementById('concept-name').value;
+            const who = document.getElementById('who-pain').value;
+            const what = document.getElementById('what-solution').value;
+            const market = document.getElementById('market').value;
+            const will = document.getElementById('will').value;
+            const can = document.getElementById('can').value;
+            const freeComment = document.getElementById('free-comment').value;
+
+            const memoContent = `
+                <div class="idea-box">
+                    <p>事業をひとことで言うと？ ${concept}</p>
+                    <p>誰に？ ${who}</p>
+                    <p>何を？ ${what}</p>
+                    <p>市場規模 ${market}</p>
+                    <p>Will ${will}</p>
+                    <p>Can ${can} </p>
+                    <p>フリーコメント ${freeComment}</p>
+                    <button onclick="deleteItem(this)">削除</button>
+                </div>
+            `;
+            document.getElementById('idea-list').innerHTML += memoContent;
+        }
+
+        //削除ボタンを押すと、ボックスが消える
+        function deleteItem(button) {
+        const memoBox = button.parentNode;
+        memoBox.parentNode.removeChild(memoBox);
+        }
+    </script>
+</body>
+
+</html>

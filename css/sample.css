@@ -1,0 +1,64 @@
+body {
+    display: flex;
+    height: 100vh;
+    margin: 0;
+}
+
+/* 左半分のエリア */
+.form-area {
+    flex: 1;
+    padding: 20px;
+    background-color: #ffe6e6;
+    box-sizing: border-box;
+}
+
+/* メモフォームのスタイル */
+.memo-form {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+/* 右半分のエリア */
+.memo-list {
+    flex: 2;
+    padding: 20px;
+    background-color: #ffffff;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+/* メモボックスのスタイル */
+.idea-box {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+input {
+    width: 90%;
+}
+
+textarea {
+    width: 90%;
+}
+
+.concept {
+    margin-bottom: 20px;
+}
+
+.who {
+    margin-bottom: 20px;
+}
+
+.what {
+    margin-bottom: 20px;
+}
+
+.can {
+    margin-bottom: 40px;
+}
+
+.comment {
+    margin-bottom: 20px;
+}
+
